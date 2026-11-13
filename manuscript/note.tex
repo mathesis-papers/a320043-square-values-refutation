@@ -1,0 +1,426 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\NN}{\mathbb{N}}
+\title{\Large OEIS A320043, COMMENTS, revision 43: a square-value refutation extending Zhu's Pell-prime result (2011)}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{November 5, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Extending Zhu's Pell-prime result (2011), we refute the conjecture in
+OEIS A320043, COMMENTS, revision 43 (September 8, 2022;
+posed December 16, 2018), by
+$a(708158976)=144767444036350576^2$.
+For every prime $p$, its preceding row has sum $p^2(p^2-1)/12$;
+for $p\geq5$, this sum is a square exactly when $p^2-12y^2=1$
+for an integer $y$. An elementary descent recovers the known Pell
+sequence and proves that this is the smallest additional square index
+whose successor is prime. We also reprove the known power-of-two index
+restriction, give a factor excluding the proposed next candidate in A277434,
+and prove the triangle's product identity and an all-row divisor formula.
+\end{abstract}
+
+\section{The conjecture and its counterexample}
+Spezia's entry A320043~\cite{spezia} conjectures that the only square
+values occur at indices $1,6,96$. The answer is negative. Zhu proved in
+2011 that $7,97,708158977$ are the first three odd primes in the
+Pell sequence for $X^2-3Y^2=1$~\cite[p.~200]{zhu}.
+The last prime already appears in Honaker's A177879 (2010)~\cite{honaker};
+Tiffin listed the Pell primes in A277434 (2016)~\cite{tiffin},
+and Tanner and Andrews supplied later answers in 2019~\cite{tanner,andrews}.
+Our purpose is to connect this known
+Pell prime to the row sum, characterize all prime-successor square indices,
+and prove the related triangle identities. The row-value wording was
+introduced in revision 31 on December 16, 2018; revision 43 preserves it.
+The exact square value is also tabulated in Howroyd's A351683 table
+(2025), in a different setting~\cite{squaredata}. The later discussion by
+Bennett and Siksek (2021/2023) records the same three known odd Pell
+primes without deciding whether further ones exist~\cite[p.~1800]{bennett}.
+
+The first FORMULA in A320043, with OFFSET $1,2$, is
+\begin{equation}\label{eq:def}
+ a(n)=\sum_{k=1}^{n}\frac{(n+1-k)^2k}{\gcd(n+1-k,k)^3},\qquad n\geq1.
+\end{equation}
+It is the row sum of $X(n,k)=T(n+1-k,k)$ in A322550~\cite{triangle}.
+Each summand is an integer: if $u=du_0$, $v=dv_0$ and
+$d=\gcd(u,v)$, then $u^2v/d^3=u_0^2v_0$.
+The sole COMMENTS conjecture, quoted exactly, is:
+\begin{quote}
+Conjecture: a(n) is not a perfect square except for n = 1, 6 and 96.
+\end{quote}
+The three examples are $a(1)=1$, $a(6)=196=14^2$, and
+$a(96)=7376656=2716^2$.
+
+\begin{theorem}\label{thm:counterexample}
+The conjecture is refuted by the explicit counterexample
+\[
+ a(708158976)=144767444036350576^2
+ =20957612852817895952216852375531776.
+\]
+\end{theorem}
+
+\begin{proof}
+If $p$ is prime and $1\leq k<p$, a common divisor of $p-k$ and $k$
+divides $p$ and $k$, so it is $1$. Expanding the numerator in
+\eqref{eq:def} and using the sums of the first three powers gives
+\begin{align}
+ a(p-1)
+ &=p^2\frac{p(p-1)}2
+   -2p\frac{p(p-1)(2p-1)}6
+   +\frac{p^2(p-1)^2}4\notag\\
+ &=\frac{p^2(p^2-1)}{12}.\label{eq:prime}
+\end{align}
+Take $p=708158977$ and $y=204427888$. The primality certificate
+below proves that $p$ is prime, and
+\[
+ p^2=501489136705686529,
+ \qquad 12y^2=501489136705686528.
+\]
+Thus \eqref{eq:prime} is $(py)^2$, and
+$py=144767444036350576$. The index $p-1$ is positive and differs
+from all three stated exceptions.
+\end{proof}
+
+\paragraph{Primality certificate.}
+Put $P=708158977$. Its predecessor has complete factorization
+\[
+ P-1=2^9\cdot3\cdot7^2\cdot97^2.
+\]
+The factors $2,3,7,97$ are prime by trial division. Modular
+exponentiation gives $5^{P-1}\equiv1\pmod P$ and the following data.
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+$q$ & $(P-1)/q$ & $5^{(P-1)/q}\bmod P$ & $\gcd(5^{(P-1)/q}-1,P)$\\
+\midrule
+2 & 354079488 & 708158976 & 1\\
+3 & 236052992 & 259204175 & 1\\
+7 & 101165568 & 342172932 & 1\\
+97 & 7300608 & 617955608 & 1\\
+\bottomrule
+\end{tabular}
+\end{center}
+For completeness, let $r$ be any prime divisor of $P$ and let $d$
+be the multiplicative order of $5$ modulo $r$. The first congruence
+gives $d\mid P-1$. Each gcd condition prevents $d$ from dividing
+$(P-1)/q$. Hence $d$ contains the full power of each prime factor
+of $P-1$, so $d=P-1$. Since $d\mid r-1$, we have $r\geq P$.
+As $r\mid P$, this forces $r=P$, proving primality. These are finite
+integer and modular calculations; the accompanying program also
+checks all possible integer divisors through $\lfloor\sqrt P\rfloor=26611$.
+
+\section{Which prime rows can be squares?}
+\begin{proposition}\label{prop:criterion}
+Let $p\geq5$ be prime. Then $a(p-1)$ is a square if and only if
+there is an integer $y\geq1$ such that $p^2-12y^2=1$.
+In that case its nonnegative square root is $py$.
+\end{proposition}
+\begin{proof}
+The reverse implication follows from \eqref{eq:prime}.
+Conversely, if $a(p-1)=m^2$, then
+$12m^2=p^2(p^2-1)$. Since $p\nmid12$, primality implies $p\mid m$.
+Writing $m=py$ and cancelling $p^2$ yields $p^2-12y^2=1$.
+The root is positive because every summand in \eqref{eq:def} is
+positive. The omitted small primes give $a(1)=1$ and $a(2)=6$.
+\end{proof}
+
+The positive solutions of this Pell equation are the familiar
+sequence A011943~\cite{lloyd}. Here is a descent proof, included
+to make the restricted minimality argument complete.
+For a solution $x,y>0$ of $x^2-12y^2=1$, we have $y\geq2$:
+$y=1$ would give $x^2=13$. Set
+\[
+ x'=7x-24y,\qquad y'=7y-2x.
+\]
+The identity $x'^2-12y'^2=(49-48)(x^2-12y^2)=1$ preserves the norm.
+Moreover, $x'>0$ since
+$49x^2-576y^2=12y^2+49>0$, and $y'\geq0$ since
+$49y^2-4x^2=y^2-4\geq0$.
+Finally, $x'<x$ because $x<4y$, which follows from
+$12y^2+1<16y^2$. Repeated descent therefore ends at $(1,0)$.
+Inverting the transformation proves that all nonnegative solutions are
+\begin{equation}\label{eq:pell}
+ x_t+y_t\sqrt{12}=(7+2\sqrt{12})^t,\qquad t\geq0.
+\end{equation}
+The inverse is $(x,y)=(7x'+24y',2x'+7y')$, so every such power
+is indeed an integer solution. In particular,
+$x_0=1$, $x_1=7$, and $x_{t+2}=14x_{t+1}-x_t$.
+The sequence is strictly increasing.
+
+\begin{corollary}\label{cor:minimal}
+Among indices $n$ for which $n+1$ is prime, the smallest square
+index outside $\{1,6,96\}$ is $708158976$.
+\end{corollary}
+\begin{proof}
+The terms in \eqref{eq:pell} up to $x_8$ are as follows.
+\begin{center}
+\begin{tabular}{rrl}
+\toprule
+$t$ & $x_t$ & Primality or a proper factor\\
+\midrule
+1 & 7 & prime\\
+2 & 97 & prime\\
+3 & 1351 & $7\cdot193$\\
+4 & 18817 & $31\cdot607$\\
+5 & 262087 & $7\cdot37441$\\
+6 & 3650401 & $97\cdot37633$\\
+7 & 50843527 & $7\cdot7263361$\\
+8 & 708158977 & prime\\
+\bottomrule
+\end{tabular}
+\end{center}
+Proposition~\ref{prop:criterion}, completeness of the descent, and
+monotonicity exclude all other primes below $x_8$; $p=2,3$ have
+already been checked. The primes in this table agree with the
+known values in A277434~\cite{tiffin}; their ordering was already proved
+by Zhu (2011)~\cite[p.~200]{zhu}. The intermediate value
+$18817$ appears in both 2019 answers; Andrews gives its
+factorization $31\cdot607$~\cite{tanner,andrews}.
+\end{proof}
+
+This is a characterization of the prime-successor case, not of all
+square indices. The least additional square index without that
+restriction and a classification for composite $n+1$ remain unresolved
+here. Whether the Pell sequence has infinitely many prime terms is
+also a separate question. The following corollaries give the available
+restrictions and answer one specific candidate question in A277434.
+
+\begin{corollary}\label{cor:indices}
+Let $r_j=((2+\sqrt3)^j+(2-\sqrt3)^j)/2$ be A001075, with
+$r_0=1$, $r_1=2$. For a prime $p$, $a(p-1)$ is a square if and only
+if $p$ is a prime term of $(r_j)$, that is, a term of A277434.
+If $p>2$, then $p=x_{2^h}$ for some $h\geq0$, and $p\equiv7\pmod{30}$.
+\end{corollary}
+\begin{proof}
+Since $(2+\sqrt3)^2=7+2\sqrt{12}$, $r_{2t}=x_t$.
+The recurrence $r_{j+2}=4r_{j+1}-r_j$ shows that odd-indexed terms
+are even, so their only possible prime is $r_1=2$; all later ones
+are larger. The criterion in Proposition~\ref{prop:criterion} and
+$a(1)=1$, $a(2)=6$ prove the equivalence.
+
+For odd $d>1$, write $(7+2\sqrt{12})^s=u+v\sqrt{12}$.
+The rational part of its $d$th power is
+$\sum_{j\text{ even}}\binom dj u^{d-j}12^{j/2}v^j$.
+Every term is divisible by $u=x_s$; hence $x_s\mid x_{ds}$.
+Since $1<x_s<x_{ds}$, a prime $x_t$ requires $t=2^h$.
+The doubling identity $x_{2t}=2x_t^2-1$ and $x_1=7$
+then give $x_{2^h}\equiv7\pmod{30}$ by induction.
+The index restriction was proved by Zhu (2011)~\cite[p.~200]{zhu}.
+The congruence and divisibility also appear in Tiffin's 2016 comments
+in A001075 and A277434~\cite{tiffin,basepell}; Andrews gave the odd-multiple argument
+for the subsequence $r_{4j}$ in 2019~\cite{andrews}.
+\end{proof}
+
+\begin{corollary}\label{cor:candidate}
+The proposed value $r_{65536}$ for the next term of A277434 is composite:
+$1310719\mid r_{65536}$.
+\end{corollary}
+\begin{proof}
+Put $w_e=r_{2^e}$, so $w_0=2$ and $w_{e+1}=2w_e^2-1$.
+Modulo $1310719$, the successive residues for $0\leq e\leq16$ are
+\[
+\begin{gathered}
+2,\ 7,\ 97,\ 18817,\ 370717,\ 481720,\ 1068965,\ 72611,\ 1291005,\\
+27224,\ 1179881,\ 1184207,\ 192869,\ 491881,\ 1285182,\ 111332,\ 0.
+\end{gathered}
+\]
+Each entry follows by one squaring and reduction. Also
+$1<1310719<r_{16}=708158977<r_{65536}$.
+The candidate was already excluded by Greathouse's stronger bound in
+A277434 (2016); this explicit factor is Andrews's (2019), whose
+$v_{14}$ is our $r_{65536}$~\cite{tiffin,andrews}.
+Existence of any further prime term is not decided by this certificate.
+\end{proof}
+
+\section{Other formulas in the posing source}
+The triangle entry A322550 states a product formula added by Spezia
+on June 24, 2024~\cite{triangle}. It follows directly from the same gcd
+reduction; it is unaffected by the square-value conjecture.
+
+\begin{corollary}\label{cor:product}
+For $n\geq1$ and $1\leq k\leq n$, put
+$X(n,k)=(n+1-k)^2k/\gcd(n+1-k,k)^3$.
+Then $X(2m-1,m)=1$ for every $m\geq1$, and
+\[
+ \prod_{k=1}^n X(n,k)^{1/3}=B(n+1),\qquad
+ B(N)=\prod_{k=1}^N\frac{k}{\gcd(k,N)}\quad\text{(A119619)}.
+\]
+Moreover $B(p)=(p-1)!$ for prime $p$.
+\end{corollary}
+\begin{proof}
+The central entry has numerator $m^3$ and denominator $m^3$.
+For the product, $\gcd(n+1-k,k)=\gcd(n+1,k)$ and
+\[
+ \prod_{k=1}^n X(n,k)
+ =\left(\frac{n!}{\prod_{k=1}^n\gcd(n+1,k)}\right)^3
+ =B(n+1)^3.
+\]
+All factors are positive, so taking the real cube root is valid.
+For prime $p$, the factors with $k<p$ have denominator one, and
+the last factor is one. This last identity was recorded by
+Steinerberger in A119619 (2006); the divisor-product expression
+$B(N)=\prod_{d\mid N}\prod_{1\leq j\leq d,(j,d)=1}j$
+in the same entry (Krizek, 2016) follows by setting $d=N/\gcd(k,N)$
+and $j=k/\gcd(k,N)$~\cite{product}.
+The definition also gives $B(N)=N!/\prod_{k=1}^N\gcd(k,N)$,
+the factorial-quotient formula recorded there by Oudra (2021).
+\end{proof}
+
+For completeness, $T(u,v)=u^2v/\gcd(u,v)^3$ gives
+$T(1,v)=v$, $T(u,1)=u^2$, $T(u,u)=1$,
+$T(u,u+1)=u^2(u+1)$, and $T(u+1,u)=(u+1)^2u$.
+These prove the row, column and adjacent-diagonal identifications in
+A322550. Geometrically the formula counts congruent axis-parallel cubes
+of maximum side length $\gcd(u,v)$ in an integer $u\times u\times v$
+prism. It is not a formula for arbitrary unequal-cube tilings: a
+$2\times2\times3$ prism uses one side-two cube and four unit cubes,
+whereas $T(2,3)=12$.
+
+\begin{corollary}\label{cor:allrows}
+Let $N\geq2$, let $\varphi$ be Euler's totient function, and put
+$E(m)=\prod_{q\mid m,\ q\text{ prime}}(1-q)$, with $E(1)=1$.
+An all-row generalization of the prime-row identity is
+\[
+ 12a(N-1)=\sum_{m\mid N}\bigl(m^3\varphi(m)-m^2E(m)\bigr).
+\]
+\end{corollary}
+\begin{proof}
+Grouping by $d=\gcd(N,k)$ gives
+$a(N-1)=\sum_{m\mid N}C(m)$, where
+\[
+C(m)=\sum_{\substack{1\leq j<m\\(j,m)=1}}(m-j)^2j,\qquad C(1)=0.
+\]
+Let $U(m)=\sum_{j=1}^{m-1}(m-j)^2j=m^2(m^2-1)/12$.
+The same grouping before division by the gcd gives
+$U(m)=\sum_{d\mid m}d^3C(m/d)$.
+M\"obius inversion yields
+\[
+ 12C(m)=m^4\sum_{d\mid m}\frac{\mu(d)}d
+          -m^2\sum_{d\mid m}\mu(d)d
+        =m^3\varphi(m)-m^2E(m).
+\]
+Here $\mu$ is the M\"obius function; its divisor sums factor as
+$\prod_{q\mid m}(1-1/q)$ and $\prod_{q\mid m}(1-q)$.
+Summing proves the formula, including the zero contribution at $m=1$.
+\end{proof}
+
+\section{Coverage and verification}
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.35\linewidth}p{0.60\linewidth}@{}}
+\toprule
+Source item & Coverage\\
+\midrule
+A320043, COMMENTS, revision 43 & Refuted (explicit counterexample),
+Theorem~\ref{thm:counterexample}.\\
+A320043, both FORMULA entries and OFFSET & Same exact definition;
+integer quotients and prime-row identity proved.\\
+A320043, examples $1,6,96$ & Preserved and checked directly.\\
+A322550, $T$, $X$ and diagonal formulas & Proved by substitution;
+the minimum-cube interpretation applies to congruent cubes.\\
+A322550, product formula & Reproved; prior formula Spezia (2024),
+Corollary~\ref{cor:product}.\\
+A119619, prime, divisor-product and quotient formulas & Reproved; prior
+formulas Steinerberger (2006), Krizek (2016), Oudra (2021).\\
+A011943, Pell description and recurrence & Reproved; prior recurrence
+in Lloyd's entry and explicit Pell description by Kociemba (2022).\\
+A277434, listed prime values & Reproved; prior Pell-prime ordering
+Zhu (2011), later list Tiffin (2016); Corollary~\ref{cor:minimal}.\\
+A001075/A277434, prime-index restriction and residue & Reproved;
+prior index proof Zhu (2011), comments Tiffin (2016), later proof
+Andrews (2019), Corollary~\ref{cor:indices}.\\
+A277434, candidate $r_{65536}$ & Reproved; prior exclusion
+Greathouse (2016), factor Andrews (2019), Corollary~\ref{cor:candidate}.\\
+A277434, existence of further terms and stronger search bound &
+Existence not covered; Greathouse's bound cited, not reproduced.\\
+All-row divisor generalization & Not posed; proved in
+Corollary~\ref{cor:allrows}.\\
+Unrestricted minimality; composite-successor squares &
+Not posed as separate conjectures; not covered.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The pinned
+\href{https://github.com/the-omega-institute/trureturing/blob/73ec20a01fc35e0f53bc258c605821728f3c33b6/D5/S3/ArithSums/SpeziaA320043SquareValuesRefutation.lean}{Lean source file}
+uses namespace
+\begin{center}\small
+\texttt{D5.S3.ArithSums.SpeziaA320043SquareValuesRefutation}.
+\end{center}
+Its declarations \texttt{a} and \texttt{claim} express
+\eqref{eq:def} and the quoted exclusion. The declaration
+\texttt{result} states its negation. The helper declarations
+\texttt{prime\_row}, \texttt{prime\_pell}, and
+\texttt{witness\_prime} respectively express \eqref{eq:prime},
+the sufficient Pell implication, and primality of $708158977$.
+The converse in Proposition~\ref{prop:criterion}, descent, restricted
+minimality and Corollaries~\ref{cor:indices}--\ref{cor:allrows} are written
+proofs, with the residue chain in Corollary~\ref{cor:candidate} a finite
+certificate. The Lean declarations do not assert these additions. The program
+\texttt{verify.py} checks the numerical certificate, the polynomial
+telescope, all 42 displayed A320043 values, rational and integer
+row sums through $256$, and the prime rows through $257$. It also checks
+the product and all-row formulas through $N=257$, the displayed residue chain,
+and the odd-multiple divisibility and prime residue restrictions on stated
+finite ranges. These finite checks support, rather than replace, the proofs.
+
+\begin{thebibliography}{12}
+\bibitem{spezia} S.~Spezia, \emph{Row sums of the triangle A322550},
+OEIS A320043, COMMENTS, FORMULA, OFFSET, revision 43,
+September 8, 2022. The row-value conjecture appears in revision 31,
+December 16, 2018, 08:23:46 EST.
+\url{https://oeis.org/A320043/internal}.
+\bibitem{triangle} S.~Spezia, OEIS A322550,
+FORMULA ($T$ and $X$), revision 30, April 16, 2026.
+\url{https://oeis.org/A322550/internal}.
+\bibitem{zhu} H.~L.~Zhu, \emph{A note on the Diophantine equation
+$x^2+q^m=y^3$}, Acta Arithmetica \textbf{146}(2) (2011), 195--202,
+Section 4, proof of Theorem 1.2, p.~200.
+\url{https://doi.org/10.4064/aa146-2-6}.
+\bibitem{honaker} G.~L.~Honaker, Jr., OEIS A177879, created
+December 13, 2010; the value $708158977$ appears in revision 3,
+December 14, 2010. \url{https://oeis.org/A177879/internal}.
+\bibitem{squaredata} K.~Voskuijl, OEIS A351683 (May 5, 2022),
+with A.~Howroyd's table installed November 15, 2025, index 17.
+\url{https://oeis.org/A351683/b351683.txt}.
+\bibitem{bennett} M.~A.~Bennett and S.~Siksek,
+\emph{Differences between perfect powers: prime power gaps},
+Algebra \& Number Theory \textbf{17}(10) (2023), 1789--1846,
+p.~1800; arXiv:2110.05553v1 (October 11, 2021).
+\url{https://doi.org/10.2140/ant.2023.17.1789}.
+\bibitem{tiffin} T.~L.~Tiffin, \emph{Primes in A001075},
+OEIS A277434, created October 14, 2016; revision 25,
+November 10, 2016, DATA and COMMENTS.
+\url{https://oeis.org/A277434/internal}.
+\bibitem{lloyd} E.~K.~Lloyd, OEIS A011943,
+COMMENTS (Pell equation) and FORMULA (recurrence),
+revision 111, December 27, 2025.
+\url{https://oeis.org/A011943/internal}.
+\bibitem{basepell} T.~L.~Tiffin, comments of October 11, 12 and 21, 2016,
+OEIS A001075, revision 355, May 25, 2026.
+\url{https://oeis.org/A001075/internal}.
+\bibitem{product} M.~Fuller, OEIS A119619, created June 6, 2006;
+comments by S.~Steinerberger (June 8, 2006), J.~Krizek (December 28, 2016),
+R.~Oudra (November 20, 2021),
+revision 21, September 8, 2022.
+\url{https://oeis.org/A119619/internal}.
+\bibitem{tanner} J.~W.~Tanner, answer to
+\emph{Prime $p$ with $p^2-3m^2=1$ and $p\equiv1\pmod4$},
+Mathematics Stack Exchange, August 21, 2019, answer 3330022.
+\url{https://math.stackexchange.com/a/3330022}.
+\bibitem{andrews} T.~Andrews, answer to the same question,
+Mathematics Stack Exchange, August 21, 2019, answer 3330070.
+\url{https://math.stackexchange.com/a/3330070}.
+\end{thebibliography}
+\medskip\noindent\small
+\copyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).
+\end{document}

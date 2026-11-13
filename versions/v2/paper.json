@@ -1,0 +1,62 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 86029,
+      "matches_public": null,
+      "path": "paper.pdf",
+      "public_sha256": null,
+      "sha256": "1d6c6694fa9d6c135aaa35940d8e1efb59bd797fb0ec203b9259d7770ddac8dc"
+    },
+    "source": {
+      "bytes": 15461,
+      "matches_public": null,
+      "path": "manuscript/",
+      "public_sha256": null,
+      "sha256": "cba154200baa956b653c5682fb45e14c940dedc584ee19b9e08ff7880f5f5144"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "Extending Zhu's Pell-prime result (2011), we refute the conjecture in OEIS A320043, COMMENTS, revision 43 (September 8, 2022; posed December 16, 2018), by a(708158976)=144767444036350576^2. For every prime p, its preceding row has sum p^2(p^2-1)/12; for p>=5, this sum is a square exactly when p^2-12y^2=1 for an integer y. An elementary descent recovers the known Pell sequence and proves that this is the smallest additional square index whose successor is prime. We also reprove the known power-of-two index restriction, give a factor excluding the proposed next candidate in A277434, and prove the triangle's product identity and an all-row divisor formula.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 2,
+    "doi": null,
+    "lean_source": {
+      "revision": "73ec20a01fc35e0f53bc258c605821728f3c33b6",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/73ec20a01fc35e0f53bc258c605821728f3c33b6/D5/S3/ArithSums/SpeziaA320043SquareValuesRefutation.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "url": "/api/v1/collected-papers/a320043-square-values-refutation/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-08T22:00:08.758158608Z",
+    "record": "a320043-square-values-refutation",
+    "repository_name": "6af0f0e8964ba435e7b3ffca",
+    "source": {
+      "url": "/api/v1/collected-papers/a320043-square-values-refutation/files/source?version=2"
+    },
+    "title": "OEIS A320043, COMMENTS, revision 43: a square-value refutation extending Zhu's Pell-prime result (2011)",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-08T22:00:08.758158608Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "a320043-square-values-refutation"
+  }
+}

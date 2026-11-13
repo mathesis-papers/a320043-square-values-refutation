@@ -1,0 +1,15 @@
+{
+  "id": "a320043-square-values-refutation",
+  "revision": 2,
+  "problem_ids": ["a320043-square-values-refutation"],
+  "topic": "The square-value conjecture in OEIS A320043, COMMENTS, revision 43",
+  "title": "OEIS A320043, COMMENTS, revision 43: a square-value refutation extending Zhu's Pell-prime result (2011)",
+  "creators": [
+    {"name": "Ma, Haobo", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Zhang, Wenlin", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "Extending Zhu's Pell-prime result (2011), we refute the conjecture in OEIS A320043, COMMENTS, revision 43 (September 8, 2022; posed December 16, 2018), by a(708158976)=144767444036350576^2. For every prime p, its preceding row has sum p^2(p^2-1)/12; for p>=5, this sum is a square exactly when p^2-12y^2=1 for an integer y. An elementary descent recovers the known Pell sequence and proves that this is the smallest additional square index whose successor is prime. We also reprove the known power-of-two index restriction, give a factor excluding the proposed next candidate in A277434, and prove the triangle's product identity and an all-row divisor formula.",
+  "summary": "Refuted (explicit counterexample): a(708158976)=144767444036350576^2. Prime-successor square indices correspond exactly to prime terms of A001075. Zhu (2011) supplies the earlier Pell-prime ordering; further corollaries establish the triangle product, an all-row divisor identity, and the proper factor 1310719 of A001075(65536).",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/73ec20a01fc35e0f53bc258c605821728f3c33b6/D5/S3/ArithSums/SpeziaA320043SquareValuesRefutation.lean"
+}
