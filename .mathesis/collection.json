@@ -1,7 +1,7 @@
 {
   "git_blobs": {
     ".github/workflows/pages.yml": "7879724db1358178aad7e9bed326a44be44f5a6a",
-    ".mathesis/generated.json": "5209e33f71772af192fb15006b5d35e5c16663b0",
+    ".mathesis/generated.json": "fd5dfcc58579ce36c36907c20678e0c3658fda41",
     "CHANGELOG.md": "cf3fc595f97e6c2a683ac0d07ca8d0b546e150f4",
     "CITATION.cff": "004627f857438844eae9198fbf2b8f18c98e22e3",
     "CONTRIBUTING.md": "ea69168fc2cb506b57b00de1ef588aaf011aa3da",
@@ -13,10 +13,11 @@
     "manuscript/note.tex": "286414aa0f166b90237e304bf77b45929b2ad05b",
     "manuscript/verification.txt": "1233839d6be3d12b73339231098281313f816317",
     "manuscript/verify.py": "8b095706c7c0481b3a8aa9b7c3626ad382829dfc",
-    "paper.json": "8e3c0c1beb17577f222bda6e92df629b202ea7e0",
+    "paper.json": "80f739cf8efd6f08e57357c8d82f2b2555b8db06",
     "paper.pdf": "3d5a865788b6c6da50d0653b5393b4f17e266760",
-    "site/index.html": "c15b0958f7a787334bdc329858ec9d65246bd1f2",
+    "site/index.html": "3a19218de7e11710c502b67413b3d6f12c069a36",
     "site/mathesis-materials.json": "f383a09166bcff171b5819f94e1b84763faa1788",
+    "source.archive": "a3946f41cd408dd3f5d6a78169afa8af13f15f16",
     "versions/v2/.mathesis/generated.json": "6e2e9491478104a2bc82f7909e46583aff2b7b06",
     "versions/v2/CHANGELOG.md": "cf3fc595f97e6c2a683ac0d07ca8d0b546e150f4",
     "versions/v2/CITATION.cff": "004627f857438844eae9198fbf2b8f18c98e22e3",
@@ -30,12 +31,13 @@
     "versions/v2/manuscript/verification.txt": "1233839d6be3d12b73339231098281313f816317",
     "versions/v2/manuscript/verify.py": "8b095706c7c0481b3a8aa9b7c3626ad382829dfc",
     "versions/v2/paper.json": "ce82ffa3bebf619b641dc570948b22d910881bfd",
-    "versions/v2/paper.pdf": "3d5a865788b6c6da50d0653b5393b4f17e266760"
+    "versions/v2/paper.pdf": "3d5a865788b6c6da50d0653b5393b4f17e266760",
+    "versions/v2/source.archive": "a3946f41cd408dd3f5d6a78169afa8af13f15f16"
   },
   "schema": "mathesis.paper-collection.v1",
   "sha256": {
     ".github/workflows/pages.yml": "f15d983dcb8f324ffdedb50b05f7380e11fda8723d49b5c8f10ef0f414612372",
-    ".mathesis/generated.json": "8c0c1cef7cdf2f6a2dfbf0e54168e3c50e2d962a8afd6670264c95f52517b0c1",
+    ".mathesis/generated.json": "5ef5f74af9ce68bde8ca2c04ee2ed906c0982665c7d263949f7bb7e4c6996884",
     "CHANGELOG.md": "5151a43d238f8dbd4087954d8a2392b04804a5b8c6eb9ea542c5f6664ee55a92",
     "CITATION.cff": "7de41174909d70efca707c817ee92ec5064d1470ed3f56c4bc69548857aa0897",
     "CONTRIBUTING.md": "fafd66e63160b2a88f433af56d2af2b0f7bf6ed2fd417d46b54446ce07c627ff",
@@ -47,10 +49,11 @@
     "manuscript/note.tex": "4926f9b56aa2254adab59266a1c71189452b605edba736417ce977913d8475d5",
     "manuscript/verification.txt": "08f8738468e5e03da39cb7697d4808f93f6ad3f5655b42aa51238c128243185b",
     "manuscript/verify.py": "9a1e74d371daeef976d03c6492e2822b291d53a4cc1d8ed6abdfe800f926f57b",
-    "paper.json": "a3d50997546220542286bcf4372176351df827127bc182bd94652b59735cbaef",
+    "paper.json": "70db91519d25905203c6a628c0b4aa89aff6d4b537ee25f734468aaee41691d6",
     "paper.pdf": "1d6c6694fa9d6c135aaa35940d8e1efb59bd797fb0ec203b9259d7770ddac8dc",
-    "site/index.html": "a94cadf1cd210e285e4f3251f9f1e456fa88ddd7bc8fe7d5c0b937c43e10ce66",
+    "site/index.html": "7beba2bf5914f63d1d30d6b8956cca5704fac688aaa6d4f94c3e0a5db810e3a4",
     "site/mathesis-materials.json": "fad0124d6e192de9be5180fec7bdb1bffaa5b1c2a563d0c5a94637ccc4323ba2",
+    "source.archive": "cba154200baa956b653c5682fb45e14c940dedc584ee19b9e08ff7880f5f5144",
     "versions/v2/.mathesis/generated.json": "96851b71d9d68ebc1aef252d421657824f99518859c6468fbb22453c773328b4",
     "versions/v2/CHANGELOG.md": "5151a43d238f8dbd4087954d8a2392b04804a5b8c6eb9ea542c5f6664ee55a92",
     "versions/v2/CITATION.cff": "7de41174909d70efca707c817ee92ec5064d1470ed3f56c4bc69548857aa0897",
@@ -64,7 +67,8 @@
     "versions/v2/manuscript/verification.txt": "08f8738468e5e03da39cb7697d4808f93f6ad3f5655b42aa51238c128243185b",
     "versions/v2/manuscript/verify.py": "9a1e74d371daeef976d03c6492e2822b291d53a4cc1d8ed6abdfe800f926f57b",
     "versions/v2/paper.json": "aef196b3f044136cfd3357ca02b046ea1c7d7b858a4365734b0651848692c07f",
-    "versions/v2/paper.pdf": "1d6c6694fa9d6c135aaa35940d8e1efb59bd797fb0ec203b9259d7770ddac8dc"
+    "versions/v2/paper.pdf": "1d6c6694fa9d6c135aaa35940d8e1efb59bd797fb0ec203b9259d7770ddac8dc",
+    "versions/v2/source.archive": "cba154200baa956b653c5682fb45e14c940dedc584ee19b9e08ff7880f5f5144"
   },
   "version": 2,
   "work": "a320043-square-values-refutation"
