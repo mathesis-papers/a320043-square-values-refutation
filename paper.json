@@ -2,16 +2,16 @@
   "files": {
     "pdf": {
       "bytes": 86029,
-      "matches_public": null,
+      "matches_public": true,
       "path": "paper.pdf",
-      "public_sha256": null,
+      "public_sha256": "1d6c6694fa9d6c135aaa35940d8e1efb59bd797fb0ec203b9259d7770ddac8dc",
       "sha256": "1d6c6694fa9d6c135aaa35940d8e1efb59bd797fb0ec203b9259d7770ddac8dc"
     },
     "source": {
       "bytes": 15461,
-      "matches_public": null,
+      "matches_public": true,
       "path": "source.archive",
-      "public_sha256": null,
+      "public_sha256": "cba154200baa956b653c5682fb45e14c940dedc584ee19b9e08ff7880f5f5144",
       "sha256": "cba154200baa956b653c5682fb45e14c940dedc584ee19b9e08ff7880f5f5144"
     }
   },
@@ -38,6 +38,8 @@
     "license": "CC-BY-4.0",
     "msc": [],
     "pdf": {
+      "bytes": 86029,
+      "sha256": "1d6c6694fa9d6c135aaa35940d8e1efb59bd797fb0ec203b9259d7770ddac8dc",
       "url": "/api/v1/collected-papers/a320043-square-values-refutation/files/pdf?version=2"
     },
     "previous_version": null,
@@ -46,6 +48,8 @@
     "record": "a320043-square-values-refutation",
     "repository_name": "a320043-square-values-refutation",
     "source": {
+      "bytes": 15461,
+      "sha256": "cba154200baa956b653c5682fb45e14c940dedc584ee19b9e08ff7880f5f5144",
       "url": "/api/v1/collected-papers/a320043-square-values-refutation/files/source?version=2"
     },
     "title": "OEIS A320043, COMMENTS, revision 43: a square-value refutation extending Zhu's Pell-prime result (2011)",
