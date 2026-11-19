@@ -1,0 +1,99 @@
+{
+  "book": "a320043-square-values-refutation",
+  "pending_claims": [],
+  "results": {
+    "counterexample": {
+      "claim": "collected:a320043-square-values-refutation:2:s1",
+      "gids": [],
+      "comparison_verdict": "variant",
+      "compared_public_gid": "D5/S3/ArithSums/SpeziaA320043SquareValuesRefutation.result",
+      "comparison_commit": "73ec20a01fc35e0f53bc258c605821728f3c33b6",
+      "formalization_request": {
+        "label": "counterexample",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/100"
+      }
+    },
+    "lean-refutation": {
+      "claim": "collected:a320043-square-values-refutation:2:s1",
+      "gids": [
+        "D5/S3/ArithSums/SpeziaA320043SquareValuesRefutation.result"
+      ],
+      "comparison_verdict": "same",
+      "compared_public_gid": "D5/S3/ArithSums/SpeziaA320043SquareValuesRefutation.result",
+      "comparison_commit": "73ec20a01fc35e0f53bc258c605821728f3c33b6"
+    },
+    "prime-criterion": {
+      "claim": "collected:a320043-square-values-refutation:2:s2",
+      "gids": [],
+      "comparison_verdict": "none",
+      "compared_public_gid": null,
+      "comparison_commit": "73ec20a01fc35e0f53bc258c605821728f3c33b6",
+      "formalization_request": {
+        "label": "prime criterion",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/94"
+      }
+    },
+    "minimality": {
+      "claim": "collected:a320043-square-values-refutation:2:s3",
+      "gids": [],
+      "comparison_verdict": "none",
+      "compared_public_gid": null,
+      "comparison_commit": "73ec20a01fc35e0f53bc258c605821728f3c33b6",
+      "formalization_request": {
+        "label": "minimality",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/95"
+      }
+    },
+    "prime-restriction": {
+      "claim": "collected:a320043-square-values-refutation:2:s4",
+      "gids": [],
+      "comparison_verdict": "none",
+      "compared_public_gid": null,
+      "comparison_commit": "73ec20a01fc35e0f53bc258c605821728f3c33b6",
+      "formalization_request": {
+        "label": "prime restriction",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/96"
+      }
+    },
+    "candidate-factor": {
+      "claim": "collected:a320043-square-values-refutation:2:s5",
+      "gids": [],
+      "comparison_verdict": "none",
+      "compared_public_gid": null,
+      "comparison_commit": "73ec20a01fc35e0f53bc258c605821728f3c33b6",
+      "formalization_request": {
+        "label": "candidate factor",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/97"
+      }
+    },
+    "product-identity": {
+      "claim": "collected:a320043-square-values-refutation:2:s6",
+      "gids": [],
+      "comparison_verdict": "none",
+      "compared_public_gid": null,
+      "comparison_commit": "73ec20a01fc35e0f53bc258c605821728f3c33b6",
+      "formalization_request": {
+        "label": "product identity",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/98"
+      }
+    },
+    "all-row-formula": {
+      "claim": "collected:a320043-square-values-refutation:2:s7",
+      "gids": [],
+      "comparison_verdict": "none",
+      "compared_public_gid": null,
+      "comparison_commit": "73ec20a01fc35e0f53bc258c605821728f3c33b6",
+      "formalization_request": {
+        "label": "all row formula",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/99"
+      }
+    }
+  },
+  "stage": "complete",
+  "titles": {
+    "en": "OEIS A320043, COMMENTS, revision 43: a square-value refutation extending Zhu's Pell-prime result (2011)",
+    "zh": "OEIS A320043, COMMENTS, revision 43: a square-value refutation extending Zhu's Pell-prime result (2011)"
+  },
+  "version": 2,
+  "work": "a320043-square-values-refutation"
+}

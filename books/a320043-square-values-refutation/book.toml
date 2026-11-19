@@ -1,0 +1,17 @@
+[book]
+version = "2"
+authors = ["Haobo Ma", "Wenlin Zhang"]
+license = "CC-BY-4.0"
+editions = ["zh", "en"]
+date = "2026-11-08"
+[book.title]
+zh = "OEIS A320043, COMMENTS, revision 43: a square-value refutation extending Zhu's Pell-prime result (2011)"
+en = "OEIS A320043, COMMENTS, revision 43: a square-value refutation extending Zhu's Pell-prime result (2011)"
+[outputs]
+html = true
+pdf = ["academic"]
+epub = true
+[mathesis]
+work = "a320043-square-values-refutation"
+version = 2
+source_title = "OEIS A320043, COMMENTS, revision 43: a square-value refutation extending Zhu's Pell-prime result (2011)"

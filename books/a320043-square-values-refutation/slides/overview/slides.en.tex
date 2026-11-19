@@ -1,0 +1,106 @@
+\documentclass{beamer}
+\input{tbook-deck}
+\title{A Pell Counterexample to a Square-Value Conjecture}
+\author{Haobo Ma\inst{1} \and Wenlin Zhang\inst{1,2}}
+\institute{\inst{1}Chrono AI, Singapore \and \inst{2}National University of Singapore, Singapore}
+\date{Mathesis paper, version 2}
+\begin{document}
+% Manuscript: Opening
+\begin{frame}
+  \titlepage
+  \note{Start with the intuition: a row sum containing gcds should make square values look accidental. The key is to inspect rows immediately before primes.}
+\end{frame}
+% Manuscript: Question
+\section[Question]{Question and witness}
+\begin{frame}{Start with a row}
+  \begin{block}{Definition}
+    \[
+    X(n,k)=\frac{(n+1-k)^2k}{\gcd(n+1-k,k)^3},\qquad
+    a(n)=\sum_{k=1}^n X(n,k).
+    \]
+  \end{block}
+  \begin{itemize}
+    \item Known squares: $a(1)=1$, $a(6)=14^2$, $a(96)=2716^2$.
+    \item OEIS A320043 conjectured that there is no fourth square value.
+  \end{itemize}
+  \note{Use $a(6)$ and $a(96)$ as small examples before stating the conjecture's exact exclusion.}
+\end{frame}
+\begin{frame}{The counterexample and the formal statement}
+  \begin{bookresult}{lean-refutation}
+    It is false that all square rows have indices in $\{1,6,96\}$.
+  \end{bookresult}
+  \vspace{0.4em}
+  The paper gives the precise witness $a(708158976)=144767444036350576^2$; a separate written statement records that equality.
+  \note{Keep the scope explicit. The Lean theorem rules out the three-index restriction; the large integer is the internal witness expanded in the written exposition.}
+\end{frame}
+% Manuscript: Prime row
+\section[Pell mechanism]{Prime rows and Pell descent}
+\begin{frame}{Prime rows suddenly simplify}
+  If $p$ is prime and $1\le k<p$, then $\gcd(p-k,k)=1$, so
+  \[
+  a(p-1)=\sum_{k=1}^{p-1}(p-k)^2k
+  =\frac{p^2(p^2-1)}{12}.
+  \]
+  \begin{alertblock}{The turning point}
+    On a prime row, the gcd triangle becomes a quartic polynomial.
+  \end{alertblock}
+  \note{Explain the coprimality: a common divisor divides both p and k, and k is smaller than the prime p. The remaining calculation is the elementary sum of three powers.}
+\end{frame}
+\begin{frame}{Why a Pell equation appears}
+  If $a(p-1)=m^2$, then
+  \[
+  12m^2=p^2(p^2-1),\qquad p\mid m.
+  \]
+  Writing $m=py$ gives
+  \[
+  p^2-12y^2=1,\qquad a(p-1)=(py)^2.
+  \]
+  \begin{block}{The paper's Proposition 2}
+    For primes $p\ge5$, this Pell condition is equivalent to a square prime row.
+  \end{block}
+  \note{This is a written-proof result with a version DOI; no frozen Lean declaration matches the full iff. The divisibility p|m follows from prime-factor multiplicity.}
+\end{frame}
+\begin{frame}{Descent and recurrence}
+  \[
+  (x,y)\mapsto(7x-24y,\,7y-2x)
+  \]
+  preserves $x^2-12y^2=1$ and makes a positive solution smaller; the inverse generates them all:
+  \[
+  x_t+y_t\sqrt{12}=(7+2\sqrt{12})^t.
+  \]
+  \[
+  x_{t+2}=14x_{t+1}-x_t.
+  \]
+  \note{Present descent as sending a solution back to an earlier one. This proves that the recurrence lists every nonnegative solution, rather than merely producing examples.}
+\end{frame}
+% Manuscript: Consequences
+\section[Scope]{Consequences and limits}
+\begin{frame}{The first new prime term}
+  \begin{block}{Paper result (Corollary 3)}
+    Among indices with prime successor, the smallest square index outside $\{1,6,96\}$ is $708158976$.
+  \end{block}
+  \[
+  7,\ 97,\ 1351=7\cdot193,\ \ldots, 708158977\ \text{(prime)}.
+  \]
+  \note{Only show the important endpoints and intermediate factors. Strict increase of the recurrence excludes anything smaller outside the table.}
+\end{frame}
+\begin{frame}{A candidate rejected by modular arithmetic}
+  Define $r_0=1$, $r_1=2$, $r_{j+2}=4r_{j+1}-r_j$.
+  Let $w_e=r_{2^e}$, so $w_{e+1}=2w_e^2-1$. Repeated reduction modulo $1310719$ gives
+  \[
+  w_{16}\equiv0\pmod{1310719},\qquad 1310719\mid r_{65536}.
+  \]
+  This is a finite certificate: it rejects one candidate without deciding whether further Pell primes exist.
+  \note{Distinguish “this candidate is composite” from “there are no more primes.” The residue chain proves only the first statement.}
+\end{frame}
+\begin{frame}{Coverage and next questions}
+  \begin{itemize}
+    \item Checked in Lean: a square exists outside the three listed indices. The public theorem states this refutation.
+    \item Written mathematics: the square criterion, minimality, power-of-two indices, the product identity, and the all-row divisor formula.
+    \item Open boundaries: classifying every square index; deciding whether Pell primes are infinite.
+  \end{itemize}
+  \note{Close by returning to the evidence boundary. Each uncovered result has a canonical shared request; written arguments are not colored as Lean theorems.}
+\end{frame}
+\appendix
+\FormalVerification
+\end{document}

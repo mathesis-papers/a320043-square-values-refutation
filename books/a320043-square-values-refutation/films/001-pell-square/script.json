@@ -1,0 +1,107 @@
+{
+  "voice": "af_heart",
+  "speed": 0.94,
+  "say": {
+    "gcd": "greatest common divisor",
+    "OEIS": "oh eyes ee ess",
+    "Pell": "pell"
+  },
+  "music": {
+    "bpm": 82,
+    "progression": "a-minor"
+  },
+  "scenes": [
+    {
+      "id": "question",
+      "name": "THE QUESTION",
+      "lead": 1.2,
+      "tail": 0.6,
+      "lines": [
+        [
+          "A row sum built from greatest common divisors looks irregular. Could it still be a perfect square only three times?",
+          "一个由最大公因数组成的行和看起来很不规则。它会不会只有三次是完全平方数？"
+        ],
+        [
+          "The OEIS conjecture says yes. This paper connects a known Pell prime to another square beyond the three listed cases, at index 708158976.",
+          "OEIS 猜想说会。这篇论文把一个已有的 Pell 素数联系到行和问题，得到三个已列情形之外的额外平方，索引为 708158976。"
+        ]
+      ]
+    },
+    {
+      "id": "prime_row",
+      "name": "A PRIME ROW",
+      "lead": 0.8,
+      "tail": 0.6,
+      "lines": [
+        [
+          "Take the row just before a prime p. Every denominator disappears, because p minus k and k are coprime.",
+          "取素数 p 前面的那一行。因为 p−k 与 k 互质，所有分母都消失。"
+        ],
+        [
+          "The entire row collapses to the identity a of p minus one equals p squared times p squared minus one, divided by twelve.",
+          "整行化成恒等式：a(p−1) 等于 p² 乘以 p²−1，再除以 12。"
+        ],
+        [
+          "For p equal to 708158977, the numbers satisfy p squared minus 12 y squared equals 1, with y equal to 204427888.",
+          "当 p=708158977 时，p²−12y²=1，其中 y=204427888。"
+        ]
+      ]
+    },
+    {
+      "id": "pell",
+      "name": "PELL DESCENT",
+      "lead": 0.8,
+      "tail": 0.6,
+      "lines": [
+        [
+          "So the square question becomes a Pell equation. Its positive solutions come from powers of 7 plus 2 times the square root of 12.",
+          "于是平方问题变成 Pell 方程。它的正解来自 7 加 2 倍根号 12 的幂。"
+        ],
+        [
+          "A descent step sends x,y to 7x minus 24y and 7y minus 2x, preserving the equation while making the solution smaller.",
+          "下降变换把 x,y 送到 7x−24y 与 7y−2x，保持方程不变，同时让解变小。"
+        ],
+        [
+          "The recurrence therefore lists every prime-successor candidate in increasing order.",
+          "因此，这个递推按递增顺序列出所有素数后继的候选索引。"
+        ]
+      ]
+    },
+    {
+      "id": "certificate",
+      "name": "THE WITNESS",
+      "lead": 0.8,
+      "tail": 0.6,
+      "lines": [
+        [
+          "The first prime terms are 7, 97, and then 708158977; the intervening terms have explicit factors.",
+          "最初的素数项是 7、97，接着是 708158977；中间项都有明确因子。"
+        ],
+        [
+          "Multiplying p by y gives 144767444036350576, the square root of the new row sum.",
+          "p 乘以 y 得到 144767444036350576，它正是新行和的平方根。"
+        ],
+        [
+          "A residue chain modulo 1310719 also rules out the proposed candidate r of 65536.",
+          "模 1310719 的余数链还排除了候选项 r_65536。"
+        ]
+      ]
+    },
+    {
+      "id": "boundary",
+      "name": "SCOPE",
+      "lead": 0.8,
+      "tail": 2.0,
+      "lines": [
+        [
+          "The existing Lean proof checks that the three-index rule fails. The Pell criterion and later identities have their own formalization tasks.",
+          "现有 Lean 证明确认三个索引的排除规则不成立。Pell 判据与后续恒等式还有各自的形式化任务。"
+        ],
+        [
+          "The counterexample is decisive, but it does not classify every square index or prove infinitely many Pell primes.",
+          "反例已经决定性地否定猜想，但它没有分类所有平方索引，也没有证明 Pell 素数有无穷多个。"
+        ]
+      ]
+    }
+  ]
+}

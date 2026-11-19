@@ -1,0 +1,29 @@
+{
+  "duration": "2:28",
+  "id": "001-pell-square",
+  "lean": [
+    "D5/S3/ArithSums/SpeziaA320043SquareValuesRefutation.result"
+  ],
+  "narration": {
+    "engine": "Kokoro-82M v1.0 (onnx)",
+    "language": "en",
+    "voice": "af_heart"
+  },
+  "outputs": {
+    "cover": "a320043-square-values-refutation_001_cover.jpg",
+    "narrated_720p": "a320043-square-values-refutation_001_720p_narrated.mp4"
+  },
+  "publication_basis": "pinned",
+  "released": "2026-11-15",
+  "resolution": "1280x720@30",
+  "style": "trureturing cyberpunk · deterministic canvas",
+  "subject": "https://github.com/the-omega-institute/trureturing",
+  "subtitles": [
+    "zh",
+    "en"
+  ],
+  "summary": "A short tour from the OEIS square-value conjecture to a prime-row identity, a Pell descent, and one decisive counterexample.",
+  "summary_zh": "从 OEIS 平方值猜想到素数行恒等式、Pell 下降和一个决定性的反例。",
+  "title": "Pell numbers and the counterexample",
+  "title_zh": "Pell 数与反例"
+}

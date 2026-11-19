@@ -1,0 +1,108 @@
+\documentclass{beamer}
+\input{tbook-deck}
+\title{平方值猜想的 Pell 反例}
+\author{Haobo Ma\inst{1} \and Wenlin Zhang\inst{1,2}}
+\institute{\inst{1}Chrono AI, Singapore \and \inst{2}National University of Singapore, Singapore}
+\date{Mathesis paper, version 2}
+\begin{document}
+% Manuscript: Opening
+\begin{frame}
+  \titlepage
+  \note{先给出问题的直觉：一行里有最大公因数，平方值看起来应该很偶然。今天的关键是观察素数后继的行。}
+\end{frame}
+% Manuscript: Question
+\section[Question]{Question and witness}
+\begin{frame}{从一行数开始}
+  \begin{block}{定义}
+    \[
+    X(n,k)=\frac{(n+1-k)^2k}{\gcd(n+1-k,k)^3},\qquad
+    a(n)=\sum_{k=1}^n X(n,k).
+    \]
+  \end{block}
+  \begin{itemize}
+    \item 已知 $a(1)=1$, $a(6)=14^2$, $a(96)=2716^2$。
+    \item OEIS A320043 猜想没有第四个平方值。
+  \end{itemize}
+  \note{用 $a(6)$ 和 $a(96)$ 让听众先看到题目确实有小的平方例子。猜想的措辞是“只有这三个索引”。}
+\end{frame}
+\begin{frame}{反例与形式化结论}
+  \begin{bookresult}{lean-refutation}
+    并非所有平方行的索引都属于 $\{1,6,96\}$。
+  \end{bookresult}
+  \vspace{0.4em}
+  论文给出的具体见证为
+  \[a(708158976)=144767444036350576^2.\]
+  该等式另有书面证明；这里的 Lean 定理陈述排除规则不成立。
+  \note{说明准确范围：现有形式化证明否定了排除规则；具体平方等式作为独立的书面结论呈现。}
+\end{frame}
+% Manuscript: Prime row
+\section[Pell mechanism]{Prime rows and Pell descent}
+\begin{frame}{素数行的突然简化}
+  若 $p$ 为素数且 $1\le k<p$，则 $\gcd(p-k,k)=1$，所以
+  \[
+  a(p-1)=\sum_{k=1}^{p-1}(p-k)^2k
+  =\frac{p^2(p^2-1)}{12}.
+  \]
+  \begin{alertblock}{关键转折}
+    最大公因数三角形在素数行上变成四次多项式。
+  \end{alertblock}
+  \note{把互质性证明说清楚：公因数同时整除 $p$ 和 $k$，而 $k$ 小于素数 $p$。然后指出三次幂求和的计算是初等代数。}
+\end{frame}
+\begin{frame}{为什么会出现 Pell 方程？}
+  若 $a(p-1)=m^2$，则
+  \[
+  12m^2=p^2(p^2-1),\qquad p\mid m.
+  \]
+  写 $m=py$，得到
+  \[
+  p^2-12y^2=1,\qquad a(p-1)=(py)^2.
+  \]
+  \begin{block}{论文命题 2}
+    对 $p\ge5$ 素数，这个 Pell 条件与素数行是平方完全等价的。
+  \end{block}
+  \note{这是有版本 DOI 的书面证明结果，当前没有匹配的冻结 Lean 声明。解释“p 整除 m”来自素数因子在等式两边的出现次数。}
+\end{frame}
+\begin{frame}{下降与递推}
+  \[
+  (x,y)\mapsto(7x-24y,\,7y-2x)
+  \]
+  保持 $x^2-12y^2=1$，并把正解变小；反向变换生成全部解：
+  \[
+  x_t+y_t\sqrt{12}=(7+2\sqrt{12})^t.
+  \]
+  \[
+  x_{t+2}=14x_{t+1}-x_t.
+  \]
+  \note{把下降看成“把一个解送回更早的解”。这使得递推不是猜出来的，而是完整列出非负解。}
+\end{frame}
+% Manuscript: Consequences
+\section[Scope]{Consequences and limits}
+\begin{frame}{第一个新素数项}
+  \begin{block}{Paper result (Corollary 3)}
+    在 $n+1$ 为素数的索引中，排除 $1,6,96$ 后最小的平方索引是 $708158976$。
+  \end{block}
+  \[
+  7,\ 97,\ 1351=7\cdot193,\ \ldots,\ 708158977\ \text{(prime)}.
+  \]
+  \note{表格只需展示关键端点和中间因子。递推递增性负责排除表格之外的更小候选。}
+\end{frame}
+\begin{frame}{一个候选项被模算术排除}
+  定义 $r_0=1$、$r_1=2$、$r_{j+2}=4r_{j+1}-r_j$。
+  令 $w_e=r_{2^e}$，则 $w_{e+1}=2w_e^2-1$。逐次模 $1310719$ 计算得到
+  \[
+  w_{16}\equiv0\pmod{1310719},\qquad 1310719\mid r_{65536}.
+  \]
+  这是有限证书：它排除一个候选项，却不决定是否还有别的 Pell 素数。
+  \note{区分“这个候选合数”与“序列中不存在更多素数”。前者由余数链证明，后者仍是开放边界。}
+\end{frame}
+\begin{frame}{覆盖范围与下一步}
+  \begin{itemize}
+    \item Lean 已检查：三个已列索引之外还存在平方行；公开定理陈述了这个反证。
+    \item 书面结果：平方判据、最小性、二的幂次下标、乘积恒等式、全行约数公式。
+    \item 未解决：所有平方索引的分类；Pell 素数是否无限。
+  \end{itemize}
+  \note{最后回到证据边界。形式化请求已经按每条数学结果登记到共享队列；这不是把未冻结的书面证明涂成绿色。}
+\end{frame}
+\appendix
+\FormalVerification
+\end{document}

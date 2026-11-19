@@ -1,0 +1,12 @@
+kind = "academic"
+editions = ["zh", "en"]
+aspect = "4:3"
+structure_colour = "#0e2c8e"
+short_author = "H. Ma · W. Zhang"
+short_title = "A320043"
+date = "Mathesis paper, version 2"
+navigation_symbols = false
+
+[title]
+zh = "平方值猜想的 Pell 反例"
+en = "A Pell Counterexample to a Square-Value Conjecture"
