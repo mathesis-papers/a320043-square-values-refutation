@@ -1,5 +1,5 @@
 [site]
-repo = "mathesis-papers/a320043-square-values-refutation"
+repo = "mathesis-papers/6af0f0e8964ba435e7b3ffca"
 base_url = "https://papers.trureturing.org/a320043-square-values-refutation/"
 post_build = ["python3", "-c", "from pathlib import Path\nimport runpy\nscript = Path(\"docs/layer-mathesis/scripts/site.py\")\nif script.is_file():\n    runpy.run_path(str(script), run_name=\"__main__\")\nelse:\n    print(\"Mathesis post-build skipped: layer script is absent from repository being built\")\n"]
 languages = ["zh", "en"]
