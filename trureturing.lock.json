@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "73ec20a01fc35e0f53bc258c605821728f3c33b6",
-  "pinned_at": "2026-11-15T03:17:42Z",
+  "commit": "b05ceb497bd134559c3c0f84d925c1643f7c65cb",
+  "pinned_at": "2026-11-24T06:48:44Z",
   "declarations": {
     "D5/S3/ArithSums/SpeziaA320043SquareValuesRefutation.result": {
       "module": "D5/S3/ArithSums/SpeziaA320043SquareValuesRefutation",
